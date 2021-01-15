@@ -1,5 +1,9 @@
 const mysql = require("mysql");
 
+const util = require("util");
+
+const inquirer = require("inquirer");
+
 require("dotenv").config(); 
 
 const connection = mysql.createConnection({
@@ -24,6 +28,23 @@ connection.connect(function(err) {
 
 function init() {
 
-    console.log("welcome to employee tracker");
- 
+    console.log("Welcome to employee tracker!");
+
+    inquirer
+      .prompt({
+        name: "list",
+        name: "action",
+        type: "What would you like to do?"
+        choices: [
+          "View Departments",
+          "View Roles",
+          "View Employees",
+          "Add Department",
+          "Add a role",
+          "Add an employee",
+
+        ]
+      })
+
+
 }
