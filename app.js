@@ -4,7 +4,7 @@ const util = require("util");
 
 const inquirer = require("inquirer");
 
-require("dotenv").config(); 
+require("dotenv").config();
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
   init();
@@ -28,23 +28,97 @@ connection.connect(function(err) {
 
 function init() {
 
-    console.log("Welcome to employee tracker!");
+  console.log("Welcome to employee tracker!");
 
-    inquirer
-      .prompt({
-        name: "list",
-        name: "action",
-        type: "What would you like to do?"
-        choices: [
-          "View Departments",
-          "View Roles",
-          "View Employees",
-          "Add Department",
-          "Add a role",
-          "Add an employee",
+  inquirer
+    .prompt({
+      type: "list",
+      name: "action",
+      message: "What would you like to do?",
+      choices: [
+        // SELECT Statements
+        "VIEW Departments",
+        "VIEW Roles",
+        "VIEW Employees",
+        // ADD Statements
+        "ADD Department",
+        "ADD a role",
+        "ADD an employee",
+        // UPDATE
+        "UPDATE an employee role",
+        // DELETE
+        "DELETE a Department",
+        "DELETE a Role",
+        "DELETE an Employee",
+        // QUIT
+        "EXIT the Application"
+      ]
+    }).then(userResponse => {
 
-        ]
-      })
+      console.log(userResponse);
+
+      switch (userResponse.action) {
+
+        case "VIEW Departments":
+          // code block
+
+          break;
+
+        case "VIEW Roles":
+          // code block
+          break;
+
+        case "VIEW Employees":
+          // code block
+
+          break;
+
+        case "ADD Department":
+          // code block
+
+          break;
+
+        case "ADD a role":
+          // code block
+
+          break;
+
+        case "ADD an employee":
+          // code block
+
+          break;
+
+        case "UPDATE an employee role":
+          // code block
+
+          break;
+
+        case "DELETE a Department":
+          // code block
+
+          break;
+
+        case "DELETE a Role":
+          // code block
+
+          break;
+
+        case "DELETE an Employee":
+          // code block
+
+          break;
+
+        case "EXIT the Application":
+          // code block
+
+          break;
+
+        // All cases covered default is not needed
+        // default:
+        // code block
+      }
+
+    })
 
 
 }
