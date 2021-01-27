@@ -11,7 +11,7 @@ class Roles {
 
         console.log("Viewing All Roles...");
 
-        return this.connection.query("select * from roles", function (err, result) {
+        return this.connection.query("select * from role", function (err, result) {
 
             if (err) {
 

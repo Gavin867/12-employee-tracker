@@ -28,6 +28,9 @@ class Department {
     }
 
     // Add departments
+    // addDepartment() {
+
+    // }
 
     // Delete Departments
 

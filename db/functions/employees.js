@@ -6,13 +6,13 @@ class Employees {
         this.connection = connection;
     };
 
-    // View all deparments
+    // View all Employees
 
     viewAllEmployees() {
 
         console.log("Viewing All Employees...");
 
-        return this.connection.query("select * from employees", function (err, result) {
+        return this.connection.query("select * from employee", function (err, result) {
 
             if (err) {
 
