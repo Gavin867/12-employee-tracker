@@ -8,7 +8,7 @@ class Department {
 
     // View all deparments
 
-    viewAll() {
+    viewAllDepartments() {
 
         console.log("Viewing All Departments...");
 

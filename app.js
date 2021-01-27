@@ -5,31 +5,49 @@ const deparments = require("./db/functions/departments");
 // Roles, Employees
 
 const inquirer = require("inquirer");
+const employees = require("./db/functions/employees");
+const { removeListener } = require("./db/functions/connection");
 
 function init() {
 
   console.log("Welcome to employee tracker!");
 
   inquirer
+
     .prompt({
+
       type: "list",
+
       name: "action",
+
       message: "What would you like to do?",
+
       choices: [
+
         // SELECT Statements
         "VIEW Departments",
+
         "VIEW Roles",
+
         "VIEW Employees",
+
         // ADD Statements
         "ADD Department",
+
         "ADD a role",
+
         "ADD an employee",
+
         // UPDATE
         "UPDATE an employee role",
+
         // DELETE
         "DELETE a Department",
+
         "DELETE a Role",
+
         "DELETE an Employee",
+        
         // QUIT
         "EXIT the Application"
       ]
@@ -41,16 +59,19 @@ function init() {
 
         case "VIEW Departments":
           
-          departments.viewAll();
+          departments.viewAllDepartments();
 
           break;
 
         case "VIEW Roles":
-          // code block
+         
+          roles.viewAllRoles();
+
           break;
 
         case "VIEW Employees":
-          // code block
+          
+          employees.viewAllEmployees();
 
           break;
 
