@@ -23,8 +23,6 @@ class Department {
             } else {
 
                 console.table(result);
-
-                app.init();
             }
         });
     }
