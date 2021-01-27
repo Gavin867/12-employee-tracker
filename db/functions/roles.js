@@ -1,6 +1,6 @@
-const connection = require("./db/functions/connection");
+const connection = require("./connection");
 
-class Roles {
+class Role {
 
     constructor(connection) {
         this.connection = connection;

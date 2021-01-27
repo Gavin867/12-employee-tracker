@@ -1,4 +1,6 @@
-const connection = require("./db/functions/connection");
+const connection = require("./connection");
+
+const app = require("../../app");
 
 class Department {
 
@@ -12,7 +14,7 @@ class Department {
 
         console.log("Viewing All Departments...");
 
-        return this.connection.query("select * from department", function (err, result) {
+        return this.connection.query("SELECT * from department", function (err, result) {
 
             if (err) {
 
@@ -22,7 +24,7 @@ class Department {
 
                 console.table(result);
 
-                init();
+                app.init();
             }
         });
     }

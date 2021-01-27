@@ -1,6 +1,6 @@
 const connection = require("./db/functions/connection");
 
-const deparments = require("./db/functions/departments");
+const departments = require("./db/functions/departments");
 
 // Roles, Employees
 
@@ -47,7 +47,7 @@ function init() {
         "DELETE a Role",
 
         "DELETE an Employee",
-        
+
         // QUIT
         "EXIT the Application"
       ]
@@ -58,19 +58,22 @@ function init() {
       switch (userResponse.action) {
 
         case "VIEW Departments":
-          
-          departments.viewAllDepartments();
+
+          departments.viewAllDepartments()
+
+          // console.table(data);
+
 
           break;
 
         case "VIEW Roles":
-         
+
           roles.viewAllRoles();
 
           break;
 
         case "VIEW Employees":
-          
+
           employees.viewAllEmployees();
 
           break;
@@ -85,12 +88,12 @@ function init() {
 
           break;
 
-        case "ADD an employee":
+        case "ADD an Employee":
           // code block
 
           break;
 
-        case "UPDATE an employee role":
+        case "UPDATE an Employee Role":
           // code block
 
           break;
