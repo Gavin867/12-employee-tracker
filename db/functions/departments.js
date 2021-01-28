@@ -9,31 +9,15 @@ class Department {
     };
 
     // View all deparments
-
     viewAllDepartments() {
 
         console.log("Viewing All Departments...");
 
         return this.connection.query("SELECT * from department"); 
-        
-        // function (err, result) {
-
-        //     if (err) {
-
-        //         console.log(err);
-
-        //     } else {
-
-        //         console.table(result);
-        //     }
-        // });
     }
 
-    // Add departments
-    // addDepartment() {
-
-    // }
-
+    // Add department
+    
     // Delete Departments
 
 };

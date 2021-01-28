@@ -59,12 +59,11 @@ function init() {
 
         case "VIEW Departments":
 
-        // Pass in a function to .then, =>
           departments.viewAllDepartments().then(result => {
-            
+
             console.table(result);
 
-            init(); 
+            init();
           });
 
           break;
