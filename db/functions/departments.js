@@ -14,17 +14,19 @@ class Department {
 
         console.log("Viewing All Departments...");
 
-        return this.connection.query("SELECT * from department", function (err, result) {
+        return this.connection.query("SELECT * from department"); 
+        
+        // function (err, result) {
 
-            if (err) {
+        //     if (err) {
 
-                console.log(err);
+        //         console.log(err);
 
-            } else {
+        //     } else {
 
-                console.table(result);
-            }
-        });
+        //         console.table(result);
+        //     }
+        // });
     }
 
     // Add departments

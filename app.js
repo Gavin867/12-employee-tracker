@@ -59,10 +59,13 @@ function init() {
 
         case "VIEW Departments":
 
-          departments.viewAllDepartments()
+        // Pass in a function to .then, =>
+          departments.viewAllDepartments().then(result => {
+            
+            console.table(result);
 
-          // console.table(data);
-
+            init(); 
+          });
 
           break;
 
@@ -122,7 +125,7 @@ function init() {
         // default:
         // code block
       }
-
+      // init();
     })
 };
 
