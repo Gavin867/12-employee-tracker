@@ -1,12 +1,62 @@
-const connection = require("./db/functions/connection");
-
 const departments = require("./db/functions/departments");
-
-// Roles, Employees
-
-const inquirer = require("inquirer");
+const roles = require("./db/functions/roles");
 const employees = require("./db/functions/employees");
-const { removeListener } = require("./db/functions/connection");
+const inquirer = require("inquirer");
+
+// Add function
+function addThisDepartment() {
+
+  inquirer
+    
+    .prompt ({
+
+      type: "input",
+
+      name: "department_name",
+
+      message: "What is the name of your new department?",
+
+    }).then(newDepartmentName => {
+
+      console.log(newDepartmentName);
+
+      departments.addDepartment(newDepartmentName).then(result => {
+
+        console.table(result);
+
+        init();
+      
+      });
+    });
+};
+
+function addThisRole() {
+
+  inquirer
+    
+  .prompt ({
+
+    type: "input",
+
+    name: "title",
+
+    message: "What role would you like to add?",
+
+  }).then(newTitleName => {
+
+    console.log(newTitleName);
+
+    roles.addThisRole(newTitleName).then(result => {
+
+      console.table(result);
+
+      init();
+    
+    });
+
+  });
+
+}
 
 function init() {
 
@@ -70,23 +120,36 @@ function init() {
 
         case "VIEW Roles":
 
-          roles.viewAllRoles();
+          roles.viewAllRoles().then(result => {
+
+            console.table(result);
+
+            init();
+          });
 
           break;
 
         case "VIEW Employees":
 
-          employees.viewAllEmployees();
+          employees.viewAllEmployees().then(result => {
+
+            console.table(result);
+
+            init();
+          });
 
           break;
 
         case "ADD Department":
-          // code block
+          
+          addThisDepartment();
 
           break;
 
         case "ADD a role":
           // code block
+
+          addThisRole();
 
           break;
 

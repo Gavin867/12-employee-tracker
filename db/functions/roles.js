@@ -11,25 +11,16 @@ class Role {
 
         console.log("Viewing All Roles...");
 
-        return this.connection.query("select * from role", function (err, result) {
-
-            if (err) {
-
-                console.log(err);
-
-            } else {
-
-                console.table(result);
-
-                init();
-            }
-        });
+        return this.connection.query("SELECT * from role"); 
     }
 
     // Add Roles
-    // addRole() {
-        
-    // }
+    addArole() {
+
+        console.log("Adding the new role...");
+
+        return this.connection.query("INSERT INTO role SET ?", title);
+    }
 
     // Delete Role
 

@@ -12,28 +12,19 @@ class Employee {
 
         console.log("Viewing All Employees...");
 
-        return this.connection.query("select * from employee", function (err, result) {
-
-            if (err) {
-
-                console.log(err);
-
-            } else {
-
-                console.table(result);
-
-                init();
-            }
-        });
+        return this.connection.query("SELECT * from employee"); 
     }
 
     // Add Employee
-    // addEmployee() {
-        
-    // }
+    addEmployee() {
+
+        console.log("Viewing All Employees...");
+
+        return this.connection.query("INSERT INTO department SET ?", first_name, last_name);
+    }
 
     // Delete Employee
-
+    
 };
 
 module.exports = new Employee(connection); 

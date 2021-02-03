@@ -13,11 +13,17 @@ class Department {
 
         console.log("Viewing All Departments...");
 
-        return this.connection.query("SELECT * from department"); 
+        return this.connection.query("SELECT * from department");
     }
 
     // Add department
-    
+    addDepartment(deptName) {
+        
+        console.log("Adding", deptName, "to departments...");
+        
+        return this.connection.query("INSERT INTO department SET ?", deptName);
+    }
+
     // Delete Departments
 
 };
