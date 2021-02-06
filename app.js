@@ -7,54 +7,69 @@ const inquirer = require("inquirer");
 function addThisDepartment() {
 
   inquirer
-    
-    .prompt ({
 
-      type: "input",
+    .prompt(
+      {
+        type: "input",
 
-      name: "department_name",
+        name: "department_name",
 
-      message: "What is the name of your new department?",
+        message: "What is the name of your new department?",
+      }).then(newDepartmentName => {
 
-    }).then(newDepartmentName => {
+        console.log(newDepartmentName);
 
-      console.log(newDepartmentName);
+        departments.addDepartment(newDepartmentName).then(result => {
 
-      departments.addDepartment(newDepartmentName).then(result => {
+          console.table(result);
 
-        console.table(result);
+          init();
 
-        init();
-      
+        });
+
       });
-    });
 };
 
 function addThisRole() {
 
   inquirer
-    
-  .prompt ({
 
-    type: "input",
+    .prompt(
+    {
+      type: "input",
 
-    name: "title",
+      name: "title",
 
-    message: "What role would you like to add?",
+      message: "What role would you like to add?"
 
-  }).then(newTitleName => {
+    },
+    {
+      type: "input",
 
-    console.log(newTitleName);
+      name: "salary",
 
-    roles.addThisRole(newTitleName).then(result => {
+      message: "What is the salary of this role?"
+    },
+    {
+      type: "choice",
 
-      console.table(result);
+      name: "",
 
-      init();
-    
+
+    },
+    ).then(newTitleName => {
+
+      console.log(newTitleName);
+
+      roles.addThisRole(newTitleName).then(result => {
+
+        console.table(result);
+
+        init();
+
+      });
+
     });
-
-  });
 
 }
 
@@ -141,7 +156,7 @@ function init() {
           break;
 
         case "ADD Department":
-          
+
           addThisDepartment();
 
           break;
