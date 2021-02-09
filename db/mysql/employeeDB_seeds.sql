@@ -2,7 +2,7 @@ INSERT INTO
   department (department_name)
 VALUES
   ("Ministry of Silly Walks"),
-  ("Parrot Shop"),
+  ("Pet Shop"),
   ("Spanish Inquisition"),
   ("Argument Clinic"),
   ("Albatross!");
@@ -11,7 +11,7 @@ INSERT INTO
   role (title, salary, department_id)
 VALUES
   ("Minister of Silly Walks", 50000, 1),
-  ("Executive Silly Assistant", 35000, 1),
+  ("Executive Assistant", 35000, 1),
   ("Norwegian Blue Expert", 25000, 2),
   ("Plumage Analyst", 20000, 2),
   ("Head Inquisitor", 60000, 3),
@@ -34,5 +34,3 @@ VALUES
   ("John", "Barnard", 4, 4),
   ("Wanda", "Fish", 4, NULL),
   ("Tracy", "Beck", 5, 5);
-
--- DELETE FROM employee WHERE id=2;
