@@ -8,13 +8,11 @@ class Role {
 
     // View all Roles
     viewAllRoles() {
-
         return this.connection.query("SELECT * from role"); 
     }
 
     // Add Roles
     addArole() {
-
         return this.connection.query("INSERT INTO role SET ?", title);
     }
 
