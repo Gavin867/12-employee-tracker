@@ -7,18 +7,13 @@ class Employee {
     };
 
     // View all Employees
-
     viewAllEmployees() {
-
-        console.log("Viewing All Employees...");
 
         return this.connection.query("SELECT * from employee"); 
     }
 
     // Add Employee
     addEmployee() {
-
-        console.log("Viewing All Employees...");
 
         return this.connection.query("INSERT INTO department SET ?", first_name, last_name);
     }

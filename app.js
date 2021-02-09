@@ -17,11 +17,7 @@ function addThisDepartment() {
         message: "What is the name of your new department?",
       }).then(newDepartmentName => {
 
-        console.log(newDepartmentName);
-
         departments.addDepartment(newDepartmentName).then(result => {
-
-          console.table(result);
 
           init();
 
@@ -35,28 +31,28 @@ function addThisRole() {
   inquirer
 
     .prompt(
-    {
-      type: "input",
+      {
+        type: "input",
 
-      name: "title",
+        name: "title",
 
-      message: "What role would you like to add?"
+        message: "What role would you like to add?"
 
-    },
-    {
-      type: "input",
+      },
+      {
+        type: "input",
 
-      name: "salary",
+        name: "salary",
 
-      message: "What is the salary of this role?"
-    },
-    {
-      type: "choice",
+        message: "What is the salary of this role?"
+      },
+      {
+        type: "choice",
 
-      name: "",
+        name: "",
 
 
-    },
+      },
     ).then(newTitleName => {
 
       console.log(newTitleName);
@@ -118,7 +114,7 @@ function init() {
       ]
     }).then(userResponse => {
 
-      console.log(userResponse);
+      // console.log(userResponse);
 
       switch (userResponse.action) {
 
@@ -197,12 +193,8 @@ function init() {
           // code block
 
           break;
-
         // All cases covered default is not needed
-        // default:
-        // code block
       }
-      // init();
     })
 };
 

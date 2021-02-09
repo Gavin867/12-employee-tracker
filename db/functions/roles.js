@@ -9,15 +9,11 @@ class Role {
     // View all Roles
     viewAllRoles() {
 
-        console.log("Viewing All Roles...");
-
         return this.connection.query("SELECT * from role"); 
     }
 
     // Add Roles
     addArole() {
-
-        console.log("Adding the new role...");
 
         return this.connection.query("INSERT INTO role SET ?", title);
     }
