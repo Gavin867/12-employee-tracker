@@ -35,19 +35,19 @@ function addNewRole() {
         message: "To which department does this role belong?",
         choices: database.map((department) => ({
             value: database.department_id,
-            name: departments.name
+            name: database.name
         })) 
       },
     ).then(newRoleInfo => {
-      roles.addRole(newRoleInfo).then(result => {
+      database.addRole(newRoleInfo).then(result => {
         console.table(result);
+        
         init();
       });
     });
 }
 
 function init() {
-
   console.log("Welcome to the Employee Tracker!");
 
   inquirer
@@ -72,7 +72,7 @@ function init() {
 
       switch (userResponse.action) {
         case "VIEW Departments":
-          departments.viewAllDepartments().then(result => {
+          database.viewAllDepartments().then(result => {
             console.table(result);
             init();
           });
@@ -80,7 +80,7 @@ function init() {
           break;
 
         case "VIEW Roles":
-          roles.viewAllRoles().then(result => {
+          database.viewAllRoles().then(result => {
             console.table(result);
             init();
           });
@@ -88,7 +88,7 @@ function init() {
           break;
 
         case "VIEW Employees":
-          employees.viewAllEmployees().then(result => {
+          database.viewAllEmployees().then(result => {
             console.table(result);
             init();
           });

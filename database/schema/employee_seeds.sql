@@ -1,5 +1,5 @@
 INSERT INTO
-  department (department_name)
+  departments (department_name)
 VALUES
   ("Ministry of Silly Walks"),
   ("Pet Shop"),
@@ -8,7 +8,7 @@ VALUES
   ("Albatross!");
 
 INSERT INTO
-  role (title, salary, department_id)
+  roles (role_title, role_salary, department_id)
 VALUES
   ("Minister of Silly Walks", 50000, 1),
   ("Executive Assistant", 35000, 1),
@@ -22,7 +22,7 @@ VALUES
   ("Albatross Vendor", 20000, 5);
 
 INSERT INTO
-  employee (first_name, last_name, role_id, manager_id)
+  employees (employee_first_name, employee_last_name, role_id, manager_id)
 VALUES
   ("Richard", "Teacup", 1, 1),
   ("Sandy", "Beech", 1, NULL),
