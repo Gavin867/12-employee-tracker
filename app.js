@@ -40,9 +40,8 @@ function addNewRole() {
             name: departments.name
         })) 
       },
-    ).then(newTitleName => {
-      // console.log(newTitleName);
-      roles.addNewRole(newTitleName).then(result => {
+    ).then(newRoleInfo => {
+      roles.addRole(newRoleInfo).then(result => {
         console.table(result);
         init();
       });
@@ -134,8 +133,8 @@ function init() {
 
           break;
 
-        default:
-          connection.end();
+        // default:
+        //   connection.end();
       }
     })
 };

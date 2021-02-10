@@ -12,7 +12,7 @@ class Role {
     }
 
     // Add Roles
-    addArole() {
+    addRole() {
         return this.connection.query("INSERT INTO role SET ?", title);
     }
 
