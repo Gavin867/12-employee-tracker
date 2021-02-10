@@ -1,8 +1,8 @@
-const departments = require("./db/functions/departments");
-const roles = require("./db/functions/roles");
-const employees = require("./db/functions/employees");
+const departments = require("./database/functions/departments");
+const roles = require("./database/functions/roles");
+const employees = require("./database/functions/employees");
 const inquirer = require("inquirer");
-const { connection } = require("./db/functions/departments");
+const { connection } = require("./database/functions/departments");
 
 function addNewDepartment() {
   inquirer
