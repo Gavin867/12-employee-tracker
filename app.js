@@ -1,6 +1,6 @@
 const connection = require("./database/connection");
 const inquirer = require("inquirer");
-const database = require("./database");
+const database = require("./database/index");
 
 function addNewDepartment() {
   inquirer
@@ -45,7 +45,7 @@ function addNewRole() {
         init();
       });
     });
-}
+};
 
 function init() {
   console.log("Welcome to the Employee Tracker!");
@@ -126,7 +126,6 @@ function init() {
           break;
 
         case "EXIT the Application":
-          connection.end();
 
           break;
       }
