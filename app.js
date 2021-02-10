@@ -1,5 +1,6 @@
 const connection = require("./database/connection");
-
+const inquirer = require("inquirer");
+const database = require("./database");
 
 function addNewDepartment() {
   inquirer
@@ -9,7 +10,7 @@ function addNewDepartment() {
         name: "department_name",
         message: "What is the name of your new department?",
       }).then(newDepartmentName => {
-        departments.addDepartment(newDepartmentName).then(result => {
+        database.addDepartment(newDepartmentName).then(result => {
           init();
         });
       });
@@ -20,20 +21,20 @@ function addNewRole() {
     .prompt(
       {
         type: "input",
-        name: "title",
+        name: "role_title",
         message: "What is the title of this new role?"
       },
       {
         type: "input",
-        name: "salary",
+        name: "role_salary",
         message: "In dollars, what is the compensation associated with this role?"
       },
       {
         type: "list",
         name: "department_id",
         message: "To which department does this role belong?",
-        choices: departments.map((department) => ({
-            value: departments.department_id,
+        choices: database.map((department) => ({
+            value: database.department_id,
             name: departments.name
         })) 
       },
@@ -47,15 +48,13 @@ function addNewRole() {
 
 function init() {
 
-  console.log("Welcome to employee tracker!");
+  console.log("Welcome to the Employee Tracker!");
 
   inquirer
-
     .prompt({
-
       type: "list",
       name: "action",
-      message: "What would you like to do?",
+      message: "Select an action.",
       choices: [
         "VIEW Departments",
         "VIEW Roles",

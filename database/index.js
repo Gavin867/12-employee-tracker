@@ -10,18 +10,18 @@ module.exports = {
     },
 
     viewEmployees() {
-        return this.connection.query("SELECT * from employee"); 
+        return this.connection.query("SELECT * from employees"); 
     },
 
-    addDepartment(deptName) {
-        return this.connection.query("INSERT INTO department SET ?", deptName);
+    addDepartment(deptartmentName) {
+        return this.connection.query("INSERT INTO departments SET ?", departmentName);
     },
 
     addRole() {
-        return this.connection.query("INSERT INTO role SET ?", title);
+        return this.connection.query("INSERT INTO roles SET ?", title);
     },
 
     addEmployee() {
-        return this.connection.query("INSERT INTO department SET ?", first_name, last_name);
+        return this.connection.query("INSERT INTO departments SET ?", first_name, last_name);
     }
 };
