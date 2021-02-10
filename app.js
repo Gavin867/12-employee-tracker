@@ -1,8 +1,5 @@
-const departments = require("./database/functions/departments");
-const roles = require("./database/functions/roles");
-const employees = require("./database/functions/employees");
-const inquirer = require("inquirer");
-const { connection } = require("./database/functions/departments");
+const connection = require("./database/connection");
+
 
 function addNewDepartment() {
   inquirer
@@ -130,11 +127,9 @@ function init() {
           break;
 
         case "EXIT the Application":
+          connection.end();
 
           break;
-
-        // default:
-        //   connection.end();
       }
     })
 };
