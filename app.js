@@ -115,12 +115,14 @@ function addDepartment() {
 };
 
 function addRole() {
-  database.viewDepartments().then(result => {
+  database.viewDepartments().then(departments => {
 
     let departmentOptions = departments.map(departments => ({
       value: departments.department_id,
       name: departments.department_name
     }));
+
+    // console.log(departmentOptions);
 
     inquirer
       .prompt([

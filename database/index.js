@@ -20,7 +20,7 @@ module.exports = {
     addRole(newRoleInfo) {
         return connection.query("INSERT INTO roles SET ?", 
         {
-            role_title: newRoleInfo.department_id,
+            role_title: newRoleInfo.role_title,
             role_salary: newRoleInfo.role_salary,
             department_id: newRoleInfo.department_id
         });

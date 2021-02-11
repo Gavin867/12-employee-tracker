@@ -11,12 +11,12 @@ INSERT INTO
   roles (role_title, role_salary, department_id)
 VALUES
   ("Minister of Silly Walks", 50000, 1),
-  ("Executive Assistant", 35000, 1),
+  ("Coffee Spiller", 35000, 1),
   ("Norwegian Blue Expert", 25000, 2),
   ("Plumage Analyst", 20000, 2),
   ("Head Inquisitor", 60000, 3),
-  ("Comfy Chair Inquisitor", 40000, 3),
-  ("Soft Pillow Operator", 20000, 3),
+  ("Comfy Chair Operator", 40000, 3),
+  ("Soft Pillow Applicator", 20000, 3),
   ("Arguer", 40000, 4),
   ("Front Desk", 30000, 4),
   ("Albatross Vendor", 20000, 5);
