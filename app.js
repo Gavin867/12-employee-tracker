@@ -117,7 +117,7 @@ function addDepartment() {
 function addRole() {
   database.viewDepartments().then(result => {
 
-    let departmentOptions = departments.map((departments) => ({
+    let departmentOptions = departments.map(departments => ({
       value: departments.department_id,
       name: departments.department_name
     }));
