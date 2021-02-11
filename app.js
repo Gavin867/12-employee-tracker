@@ -2,6 +2,101 @@ const connection = require("./database/connection");
 const inquirer = require("inquirer");
 const database = require("./database");
 
+function init() {
+  console.log("Welcome to the Employee Tracker!");
+  inquirer
+    .prompt({
+      type: "list",
+      name: "action",
+      message: "Select an action.",
+      choices: [
+        "VIEW Departments",
+        "VIEW Roles",
+        "VIEW Employees",
+        "ADD Department",
+        "ADD Role",
+        "ADD Employee",
+        "UPDATE Role",
+        "DELETE Department",
+        "DELETE Role",
+        "DELETE Employee",
+        "EXIT Application"
+      ]
+    }).then(userResponse => {
+      switch (userResponse.action) {
+        case "VIEW Departments":
+          viewDepartments();
+
+          break;
+
+        case "VIEW Roles":
+          viewRoles();
+
+          break;
+
+        case "VIEW Employees":
+          viewEmployees();
+
+          break;
+
+        case "ADD Department":
+          addNewDepartment();
+
+          break;
+
+        case "ADD a role":
+          addNewRole();
+
+          break;
+
+        case "ADD an Employee":
+
+          break;
+
+        case "UPDATE an Employee Role":
+
+          break;
+
+        case "DELETE a Department":
+
+          break;
+
+        case "DELETE a Role":
+
+          break;
+
+        case "DELETE an Employee":
+
+          break;
+
+        case "EXIT the Application":
+
+          break;
+      }
+    })
+};
+
+function viewDepartments() {
+  database.viewDepartments().then(result => {
+    console.table(result);
+    init();
+  });
+};
+
+function viewRoles() {
+  database.viewRoles().then(result => {
+    console.table(result);
+    init();
+  });
+};
+
+function viewEmployees() {
+  database.viewEmployees().then(result => {
+    console.table(result);
+    init();
+  });
+};
+
 function addNewDepartment() {
   inquirer
     .prompt(
@@ -45,91 +140,6 @@ function addNewRole() {
         init();
       });
     });
-};
-
-function init() {
-  console.log("Welcome to the Employee Tracker!");
-
-  inquirer
-    .prompt({
-      type: "list",
-      name: "action",
-      message: "Select an action.",
-      choices: [
-        "VIEW Departments",
-        "VIEW Roles",
-        "VIEW Employees",
-        "ADD Department",
-        "ADD Role",
-        "ADD Employee",
-        "UPDATE Role",
-        "DELETE Department",
-        "DELETE Role",
-        "DELETE Employee",
-        "EXIT Application"
-      ]
-    }).then(userResponse => {
-
-      switch (userResponse.action) {
-        case "VIEW Departments":
-          database.viewDepartments().then(result => {
-            console.table(result);
-            init();
-          });
-
-          break;
-
-        case "VIEW Roles":
-          database.viewAllRoles().then(result => {
-            console.table(result);
-            init();
-          });
-
-          break;
-
-        case "VIEW Employees":
-          database.viewAllEmployees().then(result => {
-            console.table(result);
-            init();
-          });
-
-          break;
-
-        case "ADD Department":
-          addNewDepartment();
-
-          break;
-
-        case "ADD a role":
-          addNewRole();
-
-          break;
-
-        case "ADD an Employee":
-
-          break;
-
-        case "UPDATE an Employee Role":
-
-          break;
-
-        case "DELETE a Department":
-
-          break;
-
-        case "DELETE a Role":
-
-          break;
-
-        case "DELETE an Employee":
-
-          break;
-
-        case "EXIT the Application":
-
-          break;
-      }
-    })
 };
 
 init();
