@@ -1,6 +1,7 @@
 const connection = require("./database/connection");
 const inquirer = require("inquirer");
 const database = require("./database");
+const consoletable = require("console.table");
 
 function init() {
   console.log("Welcome to the Employee Tracker!");
@@ -40,7 +41,7 @@ function init() {
           break;
 
         case "ADD Department":
-          addNewDepartment();
+          addDepartment();
 
           break;
 
@@ -98,7 +99,7 @@ function viewEmployees() {
   });
 };
 
-function addNewDepartment() {
+function addDepartment() {
   inquirer
     .prompt(
       {
@@ -118,7 +119,7 @@ function addRole() {
     let departmentOptions = departments.map((departments) => ({
       value: departments.department_id,
       name: departments.department_name
-    }))
+    }));
 
     inquirer
       .prompt([
@@ -141,7 +142,6 @@ function addRole() {
       ]).then(newRoleInfo => {
         database.addRole(newRoleInfo).then(result => {
           console.table(result);
-
           init();
         });
       });
