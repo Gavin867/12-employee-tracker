@@ -2,6 +2,7 @@ const connection = require("./database/connection");
 const inquirer = require("inquirer");
 const database = require("./database");
 const consoletable = require("console.table");
+const { addEmployee } = require("./database");
 
 function init() {
   console.log("Welcome to the Employee Tracker!");
@@ -79,21 +80,21 @@ function init() {
 };
 
 function viewDepartments() {
-  database.viewDepartments().then(result => {
+  database.readDepartments().then(result => {
     console.table(result);
     init();
   });
 };
 
 function viewRoles() {
-  database.viewRoles().then(result => {
+  database.readRoles().then(result => {
     console.table(result);
     init();
   });
 };
 
 function viewEmployees() {
-  database.viewEmployees().then(result => {
+  database.readEmployees().then(result => {
     console.table(result);
     init();
   });
@@ -104,10 +105,10 @@ function addDepartment() {
     .prompt(
       {
         type: "input",
-        name: "department_name",
+        name: "departmentName",
         message: "What is the name of your new department?",
-      }).then(newDepartmentName => {
-        database.addDepartment(newDepartmentName).then(result => {
+      }).then(newDepartment => {
+        database.createDepartment(newDepartment).then(result => {
           console.log("Your new department has been added.");
           init();
         });
@@ -115,40 +116,40 @@ function addDepartment() {
 };
 
 function addRole() {
-  database.viewDepartments().then(departments => {
+  database.readDepartments().then(departments => {
 
     let departmentOptions = departments.map(departments => ({
       value: departments.department_id,
       name: departments.department_name
     }));
 
-    // console.log(departmentOptions);
-
     inquirer
       .prompt([
         {
           type: "input",
-          name: "role_title",
+          name: "roleTitle",
           message: "What is the title of this new role?"
         },
         {
           type: "input",
-          name: "role_salary",
+          name: "roleSalary",
           message: "In dollars, what is the compensation associated with this role?"
         },
         {
           type: "list",
-          name: "department_id",
+          name: "departmentId",
           message: "To which department does this role belong?",
           choices: departmentOptions
         },
       ]).then(newRoleInfo => {
-        database.addRole(newRoleInfo).then(result => {
+        database.createRole(newRoleInfo).then(result => {
           console.table(result);
           init();
         });
       });
     });    
 };
+
+// addEmployee() 
 
   init();

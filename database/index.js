@@ -1,37 +1,46 @@
 const connection = require("./connection");
 
 module.exports = {
-    viewDepartments() {
+    readDepartments() {
         return connection.query("SELECT * from departments");
     },
 
-    viewRoles() {
+    readRoles() {
         return connection.query("SELECT * from roles");
     },
 
-    viewEmployees() {
+    readEmployees() {
         return connection.query("SELECT * from employees");
     },
 
-    addDepartment(department_name) {
+    createDepartment(newDepartment) {
         return connection.query("INSERT INTO departments SET ?",
-            department_name
-        );
-    },
-
-    addRole(newRoleInfo) {
-        return connection.query("INSERT INTO roles SET ?",
             {
-                role_title: newRoleInfo.role_title,
-                role_salary: newRoleInfo.role_salary,
-                department_id: newRoleInfo.department_id
+                department_name: newDepartment.departmentName
             }
         );
     },
 
-    // addEmployee() {
-    //     return connection.query("INSERT INTO departments SET ?", first_name, last_name);
-    // },
+    createRole(newRoleInfo) {
+        return connection.query("INSERT INTO roles SET ?",
+            {
+                role_title: newRoleInfo.roleTitle,
+                role_salary: newRoleInfo.roleSalary,
+                department_id: newRoleInfo.departmentId
+            }
+        );
+    },
+
+    createEmployee() {
+        return connection.query("INSERT INTO departments SET ?",
+            {
+                employee_first_name: newEmployeeInfo.employeeFirstName,
+                employee_last_name: newEmployeeInfo.employeeLastName,
+                role_id: newEmployeeInfo.roleId,
+                manager_id: newEmployeeInfo.managerId
+            }
+        );
+    },
 
     // updateRole() {
 
