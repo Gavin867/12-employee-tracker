@@ -45,32 +45,32 @@ function init() {
 
           break;
 
-        case "ADD a role":
+        case "ADD Role":
           addRole();
 
           break;
 
-        case "ADD an Employee":
+        case "ADD Employee":
 
           break;
 
-        case "UPDATE an Employee Role":
+        case "UPDATE Role":
 
           break;
 
-        case "DELETE a Department":
+        case "DELETE Department":
 
           break;
 
-        case "DELETE a Role":
+        case "DELETE Role":
 
           break;
 
-        case "DELETE an Employee":
+        case "DELETE Employee":
 
           break;
 
-        case "EXIT the Application":
+        case "EXIT Application":
           connection.end();
 
           break;
@@ -115,7 +115,8 @@ function addDepartment() {
 };
 
 function addRole() {
-  database.viewDepartments().then((deparments) => {
+  database.viewDepartments().then(result => {
+
     let departmentOptions = departments.map((departments) => ({
       value: departments.department_id,
       name: departments.department_name
