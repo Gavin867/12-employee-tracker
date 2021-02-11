@@ -6,24 +6,27 @@ module.exports = {
     },
 
     viewRoles() {
-        return connection.query("SELECT * from roles"); 
+        return connection.query("SELECT * from roles");
     },
 
     viewEmployees() {
-        return connection.query("SELECT * from employees"); 
+        return connection.query("SELECT * from employees");
     },
 
     addDepartment(department_name) {
-        return connection.query("INSERT INTO departments SET ?", department_name);
+        return connection.query("INSERT INTO departments SET ?",
+            department_name
+        );
     },
 
     addRole(newRoleInfo) {
-        return connection.query("INSERT INTO roles SET ?", 
-        {
-            role_title: newRoleInfo.role_title,
-            role_salary: newRoleInfo.role_salary,
-            department_id: newRoleInfo.department_id
-        });
+        return connection.query("INSERT INTO roles SET ?",
+            {
+                role_title: newRoleInfo.role_title,
+                role_salary: newRoleInfo.role_salary,
+                department_id: newRoleInfo.department_id
+            }
+        );
     },
 
     // addEmployee() {
