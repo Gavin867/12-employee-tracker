@@ -13,7 +13,7 @@ module.exports = {
         return connection.query("SELECT * from employees"); 
     },
 
-    addDepartment(deptartment_name) {
+    addDepartment(department_name) {
         return connection.query("INSERT INTO departments SET ?", department_name);
     },
 
