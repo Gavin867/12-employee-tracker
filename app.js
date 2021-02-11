@@ -70,6 +70,7 @@ function init() {
           break;
 
         case "EXIT the Application":
+          connection.end();
 
           break;
       }
@@ -113,34 +114,38 @@ function addNewDepartment() {
 };
 
 function addRole() {
-  inquirer
-    .prompt(
-      {
-        type: "input",
-        name: "role_title",
-        message: "What is the title of this new role?"
-      },
-      {
-        type: "input",
-        name: "role_salary",
-        message: "In dollars, what is the compensation associated with this role?"
-      },
-      {
-        type: "list",
-        name: "department_id",
-        message: "To which department does this role belong?",
-        choices: database.map((department) => ({
-            value: database.department_id,
-            name: database.name
-        })) 
-      },
-    ).then(newRoleInfo => {
-      database.addRole(newRoleInfo).then(result => {
-        console.table(result);
-        
-        init();
+  database.viewDepartments().then((deparments) => {
+    let departmentOptions = departments.map((departments) => ({
+      value: departments.department_id,
+      name: departments.department_name
+    }))
+
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "role_title",
+          message: "What is the title of this new role?"
+        },
+        {
+          type: "input",
+          name: "role_salary",
+          message: "In dollars, what is the compensation associated with this role?"
+        },
+        {
+          type: "list",
+          name: "department_id",
+          message: "To which department does this role belong?",
+          choices: departmentOptions
+        },
+      ]).then(newRoleInfo => {
+        database.addRole(newRoleInfo).then(result => {
+          console.table(result);
+
+          init();
+        });
       });
-    });
+    });    
 };
 
-init();
+  init();

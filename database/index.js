@@ -17,13 +17,17 @@ module.exports = {
         return connection.query("INSERT INTO departments SET ?", department_name);
     },
 
-    addRole() {
-        return connection.query("INSERT INTO roles SET ?", role_title);
+    addRole(newRoleInfo) {
+        return connection.query("INSERT INTO roles SET ?", {
+            role_title: newRoleInfo.department_id,
+            role_salary: newRoleInfo.role_salary,
+            department_id: newRoleInfo.department_id
+        });
     },
 
-    addEmployee() {
-        return connection.query("INSERT INTO departments SET ?", first_name, last_name);
-    },
+    // addEmployee() {
+    //     return connection.query("INSERT INTO departments SET ?", first_name, last_name);
+    // },
 
     // updateRole() {
 
