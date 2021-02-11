@@ -45,7 +45,7 @@ function init() {
           break;
 
         case "ADD a role":
-          addNewRole();
+          addRole();
 
           break;
 
@@ -106,12 +106,13 @@ function addNewDepartment() {
         message: "What is the name of your new department?",
       }).then(newDepartmentName => {
         database.addDepartment(newDepartmentName).then(result => {
+          console.log("Your new department has been added.");
           init();
         });
       });
 };
 
-function addNewRole() {
+function addRole() {
   inquirer
     .prompt(
       {

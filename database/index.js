@@ -23,5 +23,21 @@ module.exports = {
 
     addEmployee() {
         return connection.query("INSERT INTO departments SET ?", first_name, last_name);
-    }
+    },
+
+    // updateRole() {
+
+    // },
+
+    // deleteDepartment() {
+
+    // },
+
+    // deleteRole() {
+
+    // },
+
+    // deleteEmployee() {
+
+    // }
 };
