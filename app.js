@@ -1,6 +1,6 @@
 const connection = require("./database/connection");
 const inquirer = require("inquirer");
-const database = require("./database/index");
+const database = require("./database");
 
 function addNewDepartment() {
   inquirer
@@ -72,7 +72,7 @@ function init() {
 
       switch (userResponse.action) {
         case "VIEW Departments":
-          database.viewAllDepartments().then(result => {
+          database.viewDepartments().then(result => {
             console.table(result);
             init();
           });

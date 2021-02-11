@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-
 const util = require("util");
 
 require("dotenv").config();
@@ -14,7 +13,7 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log("Connected as id " + connection.threadId + "\n");
+    // console.log("Connected as id " + connection.threadId + "\n");
 });
 
 connection.query = util.promisify(connection.query);

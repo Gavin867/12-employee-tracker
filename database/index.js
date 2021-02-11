@@ -14,11 +14,11 @@ module.exports = {
     },
 
     addDepartment(deptartmentName) {
-        return this.connection.query("INSERT INTO departments SET ?", departmentName);
+        return this.connection.query("INSERT INTO departments SET ?", department_name);
     },
 
     addRole() {
-        return this.connection.query("INSERT INTO roles SET ?", title);
+        return this.connection.query("INSERT INTO roles SET ?", role_title);
     },
 
     addEmployee() {
