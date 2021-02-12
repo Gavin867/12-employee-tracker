@@ -139,7 +139,7 @@ function addRole() {
       },
     ]).then(newRoleInfo => {
       database.createRole(newRoleInfo).then(result => {
-        console.table(result);
+        console.log("You have succesfully added" + newRoleInfo.roleTitle);
         init();
       });
     });
@@ -147,18 +147,25 @@ function addRole() {
 };
 
 function addEmployee() {
+  let managerOptions;
+
+  database.readEmployees().then(employees => {
+    managerOptions = employees.map(getManagers => ({
+      value: getManagers.employee_id,
+      name: `${getManagers.employee_first_name} ${getManagers.employee_last_name}`
+    }));
+
+    managerOptions.push({
+      name: "none",
+      value: null
+    })
+  });
+
   database.readRoles().then(roles => {
     let roleOptions = roles.map(roles => ({
       value: roles.role_id,
       name: roles.role_title
     }));
-
-    database.readEmployees().then(employees => {
-      const managerOptions = employees.map(employees => ({
-        value: employees.manager_id,
-        name: '${employees.employee_first_name} ${employee_last_name}'
-      }))
-    });
 
     inquirer.prompt([
       {
@@ -169,7 +176,7 @@ function addEmployee() {
       {
         type: "input",
         name: "employeeLastName",
-        message: "What is this employee's first name?"
+        message: "What is this employee's last name?"
       },
       {
         type: "list",
@@ -185,7 +192,7 @@ function addEmployee() {
       },
     ]).then(newEmployeeInfo => {
       database.createEmployee(newEmployeeInfo).then(result => {
-        console.table(result);
+        console.log(newEmployeeInfo.employeeFirstName);
         init();
       });
     });

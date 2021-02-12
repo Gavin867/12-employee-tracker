@@ -32,7 +32,7 @@ module.exports = {
     },
 
     createEmployee(newEmployeeInfo) {
-        return connection.query("INSERT INTO departments SET ?",
+        return connection.query("INSERT INTO employees SET ?",
             {
                 employee_first_name: newEmployeeInfo.employeeFirstName,
                 employee_last_name: newEmployeeInfo.employeeLastName,
@@ -57,4 +57,8 @@ module.exports = {
     // deleteEmployee() {
 
     // }
+
+    employeesTable() {
+        
+    }
 };
