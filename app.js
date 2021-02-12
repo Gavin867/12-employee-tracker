@@ -2,7 +2,6 @@ const connection = require("./database/connection");
 const inquirer = require("inquirer");
 const database = require("./database");
 const consoletable = require("console.table");
-// const { addEmployee } = require("./database");
 
 function init() {
   console.log("Welcome to the Employee Tracker!");
@@ -148,19 +147,41 @@ function addRole() {
 };
 
 function addEmployee() {
-
   database.readRoles().then(roles => {
     let roleOptions = roles.map(roles => ({
       value: roles.role_id,
       name: roles.role_title
     }));
 
+    database.readEmployees().then(employees => {
+      const managerOptions = employees.map(employees => ({
+        value: employees.manager_id,
+        name: '${employees.employee_first_name} ${employee_last_name}'
+      }))
+    });
+
     inquirer.prompt([
       {
-       type: "list",
+        type: "input",
+        name: "employeeFirstName",
+        message: "What is this employee's first name?"
+      },
+      {
+        type: "input",
+        name: "employeeLastName",
+        message: "What is this employee's first name?"
+      },
+      {
+        type: "list",
         name: "roleId",
         message: "What is the role of this employee?",
         choices: roleOptions
+      },
+      {
+        type: "list",
+        name: "managerId",
+        message: "Who is this employee's manager?",
+        choices: managerOptions
       },
     ]).then(newEmployeeInfo => {
       database.createEmployee(newEmployeeInfo).then(result => {

@@ -31,13 +31,13 @@ module.exports = {
         );
     },
 
-    createEmployee() {
+    createEmployee(newEmployeeInfo) {
         return connection.query("INSERT INTO departments SET ?",
             {
                 employee_first_name: newEmployeeInfo.employeeFirstName,
                 employee_last_name: newEmployeeInfo.employeeLastName,
                 role_id: newEmployeeInfo.roleId,
-                manager_id: newEmployeeInfo.managerId
+                managers_id: newEmployeeInfo.managerId
             }
         );
     },

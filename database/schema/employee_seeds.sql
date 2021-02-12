@@ -22,15 +22,15 @@ VALUES
   ("Albatross Vendor", 20000, 5);
 
 INSERT INTO
-  employees (employee_first_name, employee_last_name, role_id, manager_id)
+  employees (employee_first_name, employee_last_name, role_id, managers_id)
 VALUES
-  ("Richard", "Teacup", 1, 1),
-  ("Sandy", "Beech", 1, NULL),
-  ("Joe", "King", 2, 2),
-  ("Charles", "Praline", 2, NULL),
-  ("Cardinal", "Ximinez", 3, 3),
-  ("Cardinal", "Biggles", 3, NULL),
-  ("Cardinal", "Fang", 3, NULL),
-  ("John", "Barnard", 4, 4),
-  ("Wanda", "Fish", 4, NULL),
-  ("Tracy", "Beck", 5, 5);
+  ("Richard", "Teacup", 1, NULL),
+  ("Sandy", "Beech", 1, 1),
+  ("Joe", "King", 2, NULL),
+  ("Charles", "Praline", 2, 3),
+  ("Cardinal", "Ximinez", 3, NULL),
+  ("Cardinal", "Biggles", 3, 5),
+  ("Cardinal", "Fang", 3, 5),
+  ("John", "Barnard", 4, NULL),
+  ("Wanda", "Fish", 4, 8),
+  ("Tracy", "Beck", 5, NULL);
