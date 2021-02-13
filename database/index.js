@@ -70,11 +70,15 @@ module.exports = {
         )
     },
 
-    // deleteEmployee() {
+    deleteEmployee(removeEmployee) {
+        return connection.query("DELETE FROM employees WHERE ?",
+            {
+                employee_id: removeEmployee.employeeId
+            }
+        )
+    }
 
-    // }
-
-    // employeesTable() {
+    // concatTable() {
 
     // }
 };

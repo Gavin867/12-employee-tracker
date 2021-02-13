@@ -143,7 +143,7 @@ function addRole() {
       },
     ]).then(newRoleInfo => {
       database.createRole(newRoleInfo).then(result => {
-        console.log("You have succesfully added" + newRoleInfo.roleTitle);
+        console.log("You have succesfully added " + newRoleInfo.roleTitle);
         init();
       });
     });
@@ -254,7 +254,7 @@ function dropDepartment() {
         choices: departmentOptions
       }).then(removeDepartment => {
         database.deleteDepartment(removeDepartment).then(result => {
-          console.log("You have successfully deleted" + removeDepartment.departmentId);
+          console.log("You have successfully deleted this department.");
           init();
         });
       });
@@ -276,14 +276,33 @@ function dropRole() {
         choices: roleOptions
       }).then(removeRole => {
         database.deleteRole(removeRole).then(result => {
-          console.log("You have successfully deleted" + removeRole.roleId);
+          console.log("You have successfully deleted this role.");
+          init();
         });
       });
   });
 };
 
 function dropEmployee() {
+  database.readEmployees().then((employees) => {
+    let employeeOptions = employees.map((getEmployees) => ({
+      value: getEmployees.employee_id,
+      name: `${getEmployees.employee_first_name} ${getEmployees.employee_last_name}`
+    }));
 
+    inquirer.prompt(
+      {
+        message: "Which employee would you like to delete?",
+        type: "list",
+        name: "employeeId",
+        choices: employeeOptions
+      }).then(removeEmployee => {
+        database.deleteEmployee(removeEmployee).then(result => {
+          console.log("You have successfully deleted this employee.");
+          init();
+        });
+      });
+  });
 };
 
 init();
