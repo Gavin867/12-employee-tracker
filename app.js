@@ -55,19 +55,22 @@ function init() {
         break;
 
       case "UPDATE Role":
-        updateEmployeeRole();
+        modifyEmployeeRole();
 
         break;
 
       case "DELETE Department":
+        dropDepartment();
 
         break;
 
       case "DELETE Role":
+        dropRole();
 
         break;
 
       case "DELETE Employee":
+        dropEmployee();
 
         break;
 
@@ -193,14 +196,14 @@ function addEmployee() {
       },
     ]).then(newEmployeeInfo => {
       database.createEmployee(newEmployeeInfo).then(result => {
-        console.log(newEmployeeInfo.employeeFirstName);
+        console.log("Your new employee has been added.");
         init();
       });
     });
   });
 };
 
-function updateEmployeeRole() {
+function modifyEmployeeRole() {
   database.readEmployees().then((employees) => {
     let employeeOptions = employees.map((getEmployees) => ({
       value: getEmployees.employee_id,
@@ -227,13 +230,43 @@ function updateEmployeeRole() {
           choices: roleOptions
         }
       ]).then(newRoleInfo => {
-        database.updateEmployee(newRoleInfo).then((result) => {
+        database.updateEmployeeRole(newRoleInfo).then((result) => {
           console.log("This employee's role has been updated.");
           init();
         });
       });
     });
   });
+};
+
+function dropDepartment() {
+  database.readDepartments().then(departments => {
+    let departmentOptions = departments.map(departments => ({
+      value: departments.department_id,
+      name: departments.department_name
+    }));
+
+    inquirer.prompt(
+      {
+        type: "list",
+        name: "departmentId",
+        message: "Which department would you like to delete?",
+        choices: departmentOptions
+      }).then(removeDepartment => {
+        database.deleteDepartment(removeDepartment).then(result => {
+          console.log("You have successfully deleted" + removeDepartment.department_id);
+          init();
+        });
+      });
+  });
+};
+
+function dropRole() {
+
+};
+
+function dropEmployee() {
+
 };
 
 init();
