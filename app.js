@@ -262,7 +262,24 @@ function dropDepartment() {
 };
 
 function dropRole() {
+  database.readRoles().then(roles => {
+    let roleOptions = roles.map(roles => ({
+      value: roles.role_id,
+      name: roles.role_title
+    }));
 
+    inquirer.prompt(
+      {
+        type: "list",
+        name: "roleId",
+        message: "Which role would you like to delete?",
+        choices: roleOptions
+      }).then(removeRole => {
+        database.deleteRole(removeRole).then(result => {
+          console.log("You have successfully deleted" + removeRole.roleId);
+        });
+      });
+  });
 };
 
 function dropEmployee() {

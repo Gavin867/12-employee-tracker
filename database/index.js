@@ -58,12 +58,17 @@ module.exports = {
         return connection.query("DELETE FROM departments WHERE ?",
             {
                 department_id: removeDepartment.departmentId
-            })
+            }
+        )
     },
 
-    // deleteRole() {
-
-    // },
+    deleteRole(removeRole) {
+        return connection.query("DELETE FROM roles WHERE ?",
+            {
+                role_id: removeRole.roleId
+            }
+        )
+    },
 
     // deleteEmployee() {
 
