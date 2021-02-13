@@ -5,7 +5,7 @@ VALUES
   ("Pet Shop"),
   ("Spanish Inquisition"),
   ("Argument Clinic"),
-  ("Albatross!");
+  ("ALABATROSS!!!");
 
 INSERT INTO
   roles (role_title, role_salary, department_id)
@@ -19,18 +19,18 @@ VALUES
   ("Soft Pillow Applicator", 20000, 3),
   ("Arguer", 40000, 4),
   ("Front Desk", 30000, 4),
-  ("Albatross Vendor", 20000, 5);
+  ("NOT A WAFERS VENDOR!!!", 20000, 5);
 
 INSERT INTO
   employees (employee_first_name, employee_last_name, role_id, managers_id)
 VALUES
   ("Richard", "Teacup", 1, NULL),
-  ("Sandy", "Beech", 1, 1),
-  ("Joe", "King", 2, NULL),
-  ("Charles", "Praline", 2, 3),
-  ("Cardinal", "Ximinez", 3, NULL),
-  ("Cardinal", "Biggles", 3, 5),
-  ("Cardinal", "Fang", 3, 5),
-  ("John", "Barnard", 4, NULL),
-  ("Wanda", "Fish", 4, 8),
-  ("Tracy", "Beck", 5, NULL);
+  ("Sandy", "Beech", 2, 1),
+  ("Joe", "King", 3, NULL),
+  ("Charles", "Praline", 4, 3),
+  ("Cardinal", "Ximinez", 5, NULL),
+  ("Cardinal", "Biggles", 6, 5),
+  ("Cardinal", "Fang", 7, 5),
+  ("John", "Barnard", 8, NULL),
+  ("Wanda", "Fish", 9, 8),
+  ("Tracy", "Beck", 10, NULL);
