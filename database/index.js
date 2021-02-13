@@ -54,6 +54,17 @@ module.exports = {
         ])
     },
 
+    updateEmployeeManager(newManagerInfo) {
+        return connection.query("UPDATE employees SET ? WHERE ?", [
+            {
+                managers_id: newManagerInfo.managerId
+            },
+            {
+                employee_id: newManagerInfo.employeeId
+            }
+        ])
+    },
+
     deleteDepartment(removeDepartment) {
         return connection.query("DELETE FROM departments WHERE ?",
             {

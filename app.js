@@ -17,6 +17,7 @@ function init() {
       "ADD Role",
       "ADD Employee",
       "UPDATE Role",
+      "UPDATE Manager",
       "DELETE Department",
       "DELETE Role",
       "DELETE Employee",
@@ -56,6 +57,11 @@ function init() {
 
       case "UPDATE Role":
         modifyEmployeeRole();
+
+        break;
+
+      case "UPDATE Manager":
+        modifyEmployeeManager();
 
         break;
 
@@ -234,6 +240,49 @@ function modifyEmployeeRole() {
           console.log("This employee's role has been updated.");
           init();
         });
+      });
+    });
+  });
+};
+
+function modifyEmployeeManager() {
+  let managerOptions;
+
+  database.readEmployees().then(employees => {
+    managerOptions = employees.map(getManagers => ({
+      value: getManagers.employee_id,
+      name: `${getManagers.employee_first_name} ${getManagers.employee_last_name}`
+    }));
+
+    managerOptions.push({
+      name: "none",
+      value: null
+    })
+  });
+
+  database.readEmployees().then((employees) => {
+    let employeeOptions = employees.map((getEmployees) => ({
+      value: getEmployees.employee_id,
+      name: `${getEmployees.employee_first_name} ${getEmployees.employee_last_name}`
+    }));
+
+    inquirer.prompt([
+      {
+        message: "Which employee would you like to update?",
+        type: "list",
+        name: "employeeId",
+        choices: employeeOptions
+      },
+      {
+        message: "Who is this employee's new manager?",
+        type: "list",
+        name: "managerId",
+        choices: managerOptions
+      }
+    ]).then(newManagerInfo => {
+      database.updateEmployeeManager(newManagerInfo).then((result) => {
+        console.log("This employee's manager has been updated.");
+        init();
       });
     });
   });
