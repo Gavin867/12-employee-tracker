@@ -78,6 +78,25 @@ module.exports = {
         )
     },
 
+    formattedDepartmentDisplay() {
+        return connection.query
+            (`SELECT
+            department_name as Deparments
+          FROM
+            departments;`)
+    },
+
+    formattedRoleDisplay() {
+        return connection.query
+            (`SELECT
+            role_title as Title,
+            role_salary as Salary,
+            department_name as Deparment
+          FROM
+            roles
+            LEFT JOIN departments ON departments.department_id = roles.department_id;`)
+    },
+
     formattedEmployeeDisplay() {
         return connection.query
             (`SELECT employees.employee_first_name as 'First Name', employees.employee_last_name as 'Last Name', role_title as Title, role_salary as Salary,

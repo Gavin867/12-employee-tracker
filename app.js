@@ -83,14 +83,14 @@ function init() {
 };
 
 function viewDepartments() {
-  database.readDepartments().then(result => {
+  database.formattedDepartmentDisplay().then(result => {
     console.table(result);
     init();
   });
 };
 
 function viewRoles() {
-  database.readRoles().then(result => {
+  database.formattedRoleDisplay().then(result => {
     console.table(result);
     init();
   });
