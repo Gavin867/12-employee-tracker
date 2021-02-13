@@ -97,7 +97,7 @@ function viewRoles() {
 };
 
 function viewEmployees() {
-  database.readEmployees().then(result => {
+  database.formattedEmployeeDisplay().then(result => {
     console.table(result);
     init();
   });

@@ -6,7 +6,7 @@ SELECT
   department_name as Deparment,
   CONCAT (
     managers.employee_first_name,
-    ',',
+    ' ',
     managers.employee_last_name
   ) as Manager
 FROM
