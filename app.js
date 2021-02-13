@@ -2,6 +2,25 @@ const connection = require("./database/connection");
 const inquirer = require("inquirer");
 const database = require("./database");
 const consoletable = require("console.table");
+const asciiartLogo = require("asciiart-logo");
+
+console.log(
+  asciiartLogo({
+    name: 'Employee Tracker',
+    font: 'Big Money-ne',
+    lineChars: 10,
+    padding: 2,
+    margin: 3,
+    borderColor: 'green',
+    logoColor: 'bold-pink',
+    textColor: 'yellow',
+  })
+    .emptyLine()
+    .right('version 1.0')
+    .emptyLine()
+    .center("Organizational Management Solution")
+    .render()
+);
 
 function init() {
   console.log("Welcome to the Employee Tracker!");
