@@ -55,7 +55,7 @@ function init() {
         break;
 
       case "UPDATE Role":
-        modifyRole();
+        updateEmployeeRole();
 
         break;
 
@@ -200,7 +200,7 @@ function addEmployee() {
   });
 };
 
-function changeEmployeeRole() {
+function updateEmployeeRole() {
   database.readEmployees().then((employees) => {
     let employeeOptions = employees.map((getEmployees) => ({
       value: getEmployees.employee_id,
