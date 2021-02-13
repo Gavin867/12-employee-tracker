@@ -54,7 +54,7 @@ module.exports = {
         ])
     },
 
-    deleteDepartment() {
+    deleteDepartment(removeDepartment) {
         return connection.query("DELETE FROM departments WHERE ?",
             {
                 department_id: removeDepartment.departmentId

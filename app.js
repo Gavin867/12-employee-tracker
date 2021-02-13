@@ -254,7 +254,7 @@ function dropDepartment() {
         choices: departmentOptions
       }).then(removeDepartment => {
         database.deleteDepartment(removeDepartment).then(result => {
-          console.log("You have successfully deleted" + removeDepartment.department_id);
+          console.log("You have successfully deleted" + removeDepartment.departmentId);
           init();
         });
       });
