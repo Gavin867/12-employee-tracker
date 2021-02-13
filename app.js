@@ -55,6 +55,7 @@ function init() {
         break;
 
       case "UPDATE Role":
+        modifyRole();
 
         break;
 
@@ -162,9 +163,9 @@ function addEmployee() {
   });
 
   database.readRoles().then(roles => {
-    let roleOptions = roles.map(roles => ({
-      value: roles.role_id,
-      name: roles.role_title
+    let roleOptions = roles.map(getRoles => ({
+      value: getRoles.role_id,
+      name: getRoles.role_title
     }));
 
     inquirer.prompt([
@@ -194,6 +195,42 @@ function addEmployee() {
       database.createEmployee(newEmployeeInfo).then(result => {
         console.log(newEmployeeInfo.employeeFirstName);
         init();
+      });
+    });
+  });
+};
+
+function changeEmployeeRole() {
+  database.readEmployees().then((employees) => {
+    let employeeOptions = employees.map((getEmployees) => ({
+      value: getEmployees.employee_id,
+      name: `${getEmployees.employee_first_name} ${getEmployees.employee_last_name}`
+    }));
+
+    database.readRoles().then((roles) => {
+      let roleOptions = roles.map((getRoles) => ({
+        value: getRoles.role_id,
+        name: getRoles.role_title
+      }));
+
+      inquirer.prompt([
+        {
+          message: "Which employee would you like to update?",
+          type: "list",
+          name: "employeeId",
+          choices: employeeOptions
+        },
+        {
+          message: "What is this employee's new role?",
+          type: "list",
+          name: "roleId",
+          choices: roleOptions
+        }
+      ]).then(newRoleInfo => {
+        database.updateEmployee(newRoleInfo).then((result) => {
+          console.log("This employee's role has been updated.");
+          init();
+        });
       });
     });
   });

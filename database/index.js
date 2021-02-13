@@ -1,3 +1,4 @@
+const { restoreDefaultPrompts } = require("inquirer");
 const connection = require("./connection");
 
 module.exports = {
@@ -17,8 +18,7 @@ module.exports = {
         return connection.query("INSERT INTO departments SET ?",
             {
                 department_name: newDepartment.departmentName
-            }
-        );
+            });
     },
 
     createRole(newRoleInfo) {
@@ -27,8 +27,7 @@ module.exports = {
                 role_title: newRoleInfo.roleTitle,
                 role_salary: newRoleInfo.roleSalary,
                 department_id: newRoleInfo.departmentId
-            }
-        );
+            });
     },
 
     createEmployee(newEmployeeInfo) {
@@ -38,13 +37,18 @@ module.exports = {
                 employee_last_name: newEmployeeInfo.employeeLastName,
                 role_id: newEmployeeInfo.roleId,
                 managers_id: newEmployeeInfo.managerId
-            }
-        );
+            });
     },
 
-    // updateRole() {
-
-    // },
+    updateEmployee(newRoleInfo) {
+        return connection.query("UPDATE employees SET ? WHERE ?", [
+            {
+                role_id: newRoleInfo.roleId
+            },
+            {
+                employee_id: newRoleInfo.employeeId
+            }])
+    },
 
     // deleteDepartment() {
 
@@ -58,7 +62,7 @@ module.exports = {
 
     // }
 
-    employeesTable() {
-        
-    }
+    // employeesTable() {
+
+    // }
 };
