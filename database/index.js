@@ -92,6 +92,7 @@ module.exports = {
     formatDepartmentTable() {
         return connection.query
             (`SELECT
+            department_id as 'ID#',
             department_name as Deparments
           FROM
             departments;`)
@@ -100,6 +101,7 @@ module.exports = {
     formatRoleTable() {
         return connection.query
             (`SELECT
+            role_id as 'ID#',
             role_title as Title,
             role_salary as Salary,
             department_name as Deparment
@@ -110,8 +112,13 @@ module.exports = {
 
     formatEmployeeTable() {
         return connection.query
-            (`SELECT employees.employee_first_name as 'First Name', employees.employee_last_name as 'Last Name', role_title as Title, role_salary as Salary,
-            department_name as Deparment, CONCAT (managers.employee_first_name, ' ', managers.employee_last_name) as Manager
+            (`SELECT
+            employees.employee_id as 'ID#', 
+            employees.employee_first_name as 'First Name', 
+            employees.employee_last_name as 'Last Name', 
+            role_title as Title, role_salary as Salary,
+            department_name as Deparment, 
+            CONCAT (managers.employee_first_name, ' ', managers.employee_last_name) as Manager
             FROM employees
                 LEFT JOIN roles ON roles.role_id = employees.role_id
                 LEFT JOIN departments ON departments.department_id = roles.department_id

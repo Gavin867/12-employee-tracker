@@ -6,9 +6,9 @@ const asciiartLogo = require("asciiart-logo");
 
 console.log(
   asciiartLogo({
-    name: 'Employee Tracker',
-    font: 'Big Money-ne',
-    lineChars: 10,
+    name: 'The Flying Circus Tracker',
+    font: 'Crawford2',
+    lineChars: 30,
     padding: 2,
     margin: 3,
     borderColor: 'green',
@@ -18,12 +18,12 @@ console.log(
     .emptyLine()
     .right('version 1.0')
     .emptyLine()
-    .center("Organizational Management Solution")
+    .center("Monty Python's Organizational Management System")
     .render()
 );
 
 function init() {
-  console.log("Welcome to the Employee Tracker!");
+  console.log("Welcome to the Main Menu!");
   inquirer.prompt({
     type: "list",
     name: "action",

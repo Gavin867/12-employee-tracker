@@ -32,5 +32,5 @@ VALUES
   ("Cardinal", "Biggles", 6, 5),
   ("Cardinal", "Fang", 7, 5),
   ("John", "Barnard", 8, NULL),
-  ("Wanda", "Fish", 9, 8),
+  ("Wanda", "Gershwitz", 9, 8),
   ("Tracy", "Beck", 10, NULL);
