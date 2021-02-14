@@ -14,10 +14,10 @@ module.exports = {
         return connection.query("SELECT * from employees");
     },
 
-    createDepartment(newDepartment) {
+    createDepartment(newDepartmentInfo) {
         return connection.query("INSERT INTO departments SET ?",
             {
-                department_name: newDepartment.departmentName
+                department_name: newDepartmentInfo.departmentName
             }
         );
     },

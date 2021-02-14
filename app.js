@@ -134,9 +134,9 @@ function addDepartment() {
       type: "input",
       name: "departmentName",
       message: "What is the name of your new department?",
-    }).then(newDepartment => {
-      database.createDepartment(newDepartment).then(result => {
-        console.log("Your new department has been added.");
+    }).then(newDepartmentInfo => {
+      database.createDepartment(newDepartmentInfo).then(result => {
+        console.log("You have successfully added " + newDepartmentInfo.departmentName + " to Departmnets.");
         init();
       });
     });
@@ -168,7 +168,7 @@ function addRole() {
       },
     ]).then(newRoleInfo => {
       database.createRole(newRoleInfo).then(result => {
-        console.log("You have succesfully added " + newRoleInfo.roleTitle);
+        console.log("You have succesfully added " + newRoleInfo.roleTitle + " to Roles.");
         init();
       });
     });
@@ -221,7 +221,7 @@ function addEmployee() {
       },
     ]).then(newEmployeeInfo => {
       database.createEmployee(newEmployeeInfo).then(result => {
-        console.log("Your new employee has been added.");
+        console.log("You have successfully added " + newEmployeeInfo.employeeFirstName + " " + newEmployeeInfo.employeeLastName + " to Employees.");
         init();
       });
     });
@@ -256,7 +256,7 @@ function modifyEmployeeRole() {
         }
       ]).then(newRoleInfo => {
         database.updateEmployeeRole(newRoleInfo).then((result) => {
-          console.log("This employee's role has been updated.");
+          console.log("You have successfully upated Employee " + newRoleInfo.employeeId + "'s role.");
           init();
         });
       });
@@ -300,7 +300,7 @@ function modifyEmployeeManager() {
       }
     ]).then(newManagerInfo => {
       database.updateEmployeeManager(newManagerInfo).then((result) => {
-        console.log("This employee's manager has been updated.");
+        console.log("You have successfully upated Employee " + newManagerInfo.employeeId + "'s role.");
         init();
       });
     });
@@ -322,7 +322,7 @@ function dropDepartment() {
         choices: departmentOptions
       }).then(removeDepartment => {
         database.deleteDepartment(removeDepartment).then(result => {
-          console.log("You have successfully deleted this department.");
+          console.log("You have successfully deleted Department " + removeDepartment.departmentId + " from Departments.");
           init();
         });
       });
@@ -344,8 +344,8 @@ function dropRole() {
         choices: roleOptions
       }).then(removeRole => {
         database.deleteRole(removeRole).then(result => {
-          console.log("You have successfully deleted this role.");
-          init();
+          console.log("You have successfully deleted Role " + removeRole.roleId + " from Roles.");
+          init(); 
         });
       });
   });
@@ -366,7 +366,7 @@ function dropEmployee() {
         choices: employeeOptions
       }).then(removeEmployee => {
         database.deleteEmployee(removeEmployee).then(result => {
-          console.log("You have successfully deleted this employee.");
+          console.log("You have successfully deleted Employee " + removeEmployee.employeeId + " from Employees.");
           init();
         });
       });
