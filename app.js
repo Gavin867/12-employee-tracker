@@ -108,21 +108,21 @@ function init() {
 };
 
 function viewDepartments() {
-  database.formattedDepartmentDisplay().then(result => {
+  database.formatDepartmentTable().then(result => {
     console.table(result);
     init();
   });
 };
 
 function viewRoles() {
-  database.formattedRoleDisplay().then(result => {
+  database.formatRoleTable().then(result => {
     console.table(result);
     init();
   });
 };
 
 function viewEmployees() {
-  database.formattedEmployeeDisplay().then(result => {
+  database.formatEmployeeTable().then(result => {
     console.table(result);
     init();
   });

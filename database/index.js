@@ -89,7 +89,7 @@ module.exports = {
         )
     },
 
-    formattedDepartmentDisplay() {
+    formatDepartmentTable() {
         return connection.query
             (`SELECT
             department_name as Deparments
@@ -97,7 +97,7 @@ module.exports = {
             departments;`)
     },
 
-    formattedRoleDisplay() {
+    formatRoleTable() {
         return connection.query
             (`SELECT
             role_title as Title,
@@ -108,7 +108,7 @@ module.exports = {
             LEFT JOIN departments ON departments.department_id = roles.department_id;`)
     },
 
-    formattedEmployeeDisplay() {
+    formatEmployeeTable() {
         return connection.query
             (`SELECT employees.employee_first_name as 'First Name', employees.employee_last_name as 'Last Name', role_title as Title, role_salary as Salary,
             department_name as Deparment, CONCAT (managers.employee_first_name, ' ', managers.employee_last_name) as Manager
