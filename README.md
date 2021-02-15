@@ -86,7 +86,7 @@ Have questions? Contact Gavin Calkins at [gavin.calkins@gmail.com](mailto:gavin.
  
 ## License
 
-    Meili. An application that uses mySQL, Sequelize, Node.js and Handlebars to help you inventory and pack your outdoor gear.
+    The Flying Circus Tracker. A command line interface application which uses mySQL, Node, Util and Inquirer to store and manipulate organizational data.
 
     Copyright (C) 2021  Gavin B. Calkins 
 
