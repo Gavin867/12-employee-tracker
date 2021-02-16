@@ -24,6 +24,8 @@ GitHub Repository Link: https://github.com/Gavin867/The_Flying_Circus_Tracker
 
 ## Application Summary
 
+![Main Menu](https://github.com/Gavin867/The_Flying_Circus_Tracker/blob/main/assets/readme-images/main-menu.png)
+
 The Flying Circus Tracker can be used to store organizational information in a mySQL database for easy reference. With this application you can perform the following tasks:
 
 1. View existing data for departments, roles and employees.
@@ -37,7 +39,7 @@ Click [here](https://drive.google.com/file/d/12ED4DZ2fCDA_04mKNonfq5UCZK5GQyUS/v
 
 Click [here](https://drive.google.com/file/d/1TqmsEsymn0bH5U-kexgpS_FoMfBLjud-/view) to view Part II of the application demoo which covers the DELETE funcationaliy.
 
-...if you you don't get the reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E).
+(...if you you don't get the Python reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E)
 
 ## Installation
 
