@@ -37,7 +37,7 @@ The Flying Circus Tracker can be used to store organizational information in a m
 
 Click [here](https://drive.google.com/file/d/12ED4DZ2fCDA_04mKNonfq5UCZK5GQyUS/view) to view Part I of the application demo which covers the VIEW, ADD, and UPDATE functionality.
 
-Click [here](https://drive.google.com/file/d/1TqmsEsymn0bH5U-kexgpS_FoMfBLjud-/view) to view Part II of the application demoo which covers the DELETE funcationaliy.
+Click [here](https://drive.google.com/file/d/1TqmsEsymn0bH5U-kexgpS_FoMfBLjud-/view) to view Part II of the application demoo which covers the DELETE functionality.
 
 ( ...If you you don't get the Python reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E). )
 
