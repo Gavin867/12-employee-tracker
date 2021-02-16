@@ -33,7 +33,11 @@ The Flying Circus Tracker can be used to store organizational information in a m
 
 ## Demo
 
-Click [here]() to view the demo video OR copy, paste, and execute the following link in your browser:
+Click [here](https://drive.google.com/file/d/12ED4DZ2fCDA_04mKNonfq5UCZK5GQyUS/view) to view Part I of the application demo which covers the VIEW, ADD, and UPDATE functionality.
+
+Click [here](https://drive.google.com/file/d/1TqmsEsymn0bH5U-kexgpS_FoMfBLjud-/view) to view Part II of the application demoo which covers the DELETE funcationaliy.
+
+...if you you don't get the reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E).
 
 ## Installation
 
