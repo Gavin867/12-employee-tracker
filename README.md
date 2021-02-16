@@ -39,7 +39,7 @@ Click [here](https://drive.google.com/file/d/12ED4DZ2fCDA_04mKNonfq5UCZK5GQyUS/v
 
 Click [here](https://drive.google.com/file/d/1TqmsEsymn0bH5U-kexgpS_FoMfBLjud-/view) to view Part II of the application demoo which covers the DELETE functionality.
 
-( ...If you you don't get the Python reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E). )
+( ...If you you don't get the Python reference in the demo videos, click [here](https://www.youtube.com/watch?v=T8XeDvKqI4E).)
 
 ## Installation
 
