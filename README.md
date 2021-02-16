@@ -18,7 +18,7 @@ A command line interface application which uses mySQL, Node, Util and Inquirer t
 - [Point of Contact](#point-of-contact)
 - [License](#license)
 
-## Location
+## Locations
 
 GitHub Repository Link: https://github.com/Gavin867/The_Flying_Circus_Tracker
 
