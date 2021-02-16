@@ -88,7 +88,7 @@ Additional goals and application features for future devlopment include:
 
 ## Point of Contact
 
-Have questions? Contact Gavin Calkins at [gavin.calkins@gmail.com](mailto:gavin.calkins@gmail.com?subject=Hi%20Gavin!%20I%20have%20a%20question%20about%20the%Flying=%20Circus%Tracker!).
+Have questions? Contact Gavin Calkins at [gavin.calkins@gmail.com](mailto:gavin.calkins@gmail.com?subject=Hi%20Gavin!%20I%20have%20a%20question%20about%20the%20Flying%20Circus%Tracker!).
  
 ## License
 
